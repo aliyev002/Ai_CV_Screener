@@ -1,0 +1,26 @@
+Job Title: AI Automation Engineer / Python Specialist
+Department: Technology & Innovation
+Location: Remote / Hybrid
+
+Role Summary:
+We are looking for an AI Automation Engineer to design, build, and deploy intelligent workflows that automate business processes. You will leverage modern LLMs (Gemini, OpenAI), automation tools (n8n, Make), and Python to build automated agents, document intelligence pipelines, and system integrations.
+
+Key Responsibilities:
+- Develop automated workflows using Python, n8n, Make, and webhook integrations.
+- Implement LLM-based solutions utilizing prompt engineering, structured JSON outputs, and function calling.
+- Extract, parse, and analyze unstructured documents (PDFs, DOCX, CSVs) using Python libraries (pypdf, docx).
+- Connect AI models with third-party platforms (Google Sheets API, Notion, CRMs, internal databases).
+- Monitor, debug, and optimize workflow execution, latency, and API costs.
+
+Required Qualifications & Skills:
+- 2+ years of hands-on experience in Python programming (APIs, Requests, Pandas, Pydantic).
+- Strong practical experience with LLM APIs (OpenAI API, Google Gemini, Anthropic).
+- Proven experience building automated workflows in n8n or Make.com.
+- Familiarity with document parsing, data extraction, and regex.
+- Solid understanding of REST APIs, Webhooks, and JSON data structures.
+- Bachelor's degree in Computer Science, Information Technology, or equivalent practical experience.
+
+Nice-to-Have:
+- Experience building web prototypes using Streamlit or FastAPI.
+- Knowledge of Docker and cloud deployments.
+- Experience with Google Sheets API / Google Apps Script.

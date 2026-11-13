@@ -1,0 +1,96 @@
+{
+  "name": "AI-Powered CV Screening Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "cv-screen",
+        "options": {}
+      },
+      "name": "Webhook Trigger (CV Upload)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "extractText",
+        "binaryPropertyName": "data"
+      },
+      "name": "PDF / Document Parser",
+      "type": "n8n-nodes-base.readPdf",
+      "typeVersion": 1,
+      "position": [
+        460,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gemini-1.5-flash",
+        "prompt": "Evaluate this candidate CV against the Job Description following the Rubric (Tech 40%, Exp 30%, Edu 15%, Presentation 15%). Return structured JSON.",
+        "jsonOutput": true
+      },
+      "name": "Gemini AI Screening Model",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        680,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "sheetId": "1your_google_sheet_id_here",
+        "range": "A:H",
+        "options": {}
+      },
+      "name": "Google Sheets Append Row",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 2,
+      "position": [
+        900,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook Trigger (CV Upload)": {
+      "main": [
+        [
+          {
+            "node": "PDF / Document Parser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PDF / Document Parser": {
+      "main": [
+        [
+          {
+            "node": "Gemini AI Screening Model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini AI Screening Model": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets Append Row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
